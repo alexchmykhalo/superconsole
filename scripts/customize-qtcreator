@@ -1,0 +1,17 @@
+#!/bin/zsh
+rm -rf /home/User/QtProject
+sdktool --sdkpath=/home/User/QtProject/qtcreator addTC --id "ProjectExplorer.ToolChain.Clang:org.pllug.toolchain.clang.c" --language 1 --name "MSYS64 Clang C"  --path /mingw64/bin/clang.exe --abi x86-windows-msys-pe-64bit --supportedAbis x86-windows-msys-pe-64bit
+sdktool --sdkpath=/home/User/QtProject/qtcreator addTC --id "ProjectExplorer.ToolChain.Clang:org.pllug.toolchain.clang.cpp" --language 2 --name "MSYS64 Clang C++"  --path /mingw64/bin/clang++.exe --abi x86-windows-msys-pe-64bit --supportedAbis x86-windows-msys-pe-64bit
+sdktool --sdkpath=/home/User/QtProject/qtcreator addQt --id "org.pllug.toolchain.qt" --name "MSYS64 %{Qt:Version} in PATH" --qmake /mingw64/bin/qmake.exe --type Qt4ProjectManager.QtVersion.Desktop
+sdktool --sdkpath=/home/User/QtProject/qtcreator addKit --id "org.pllug.kit" --name "Qt %{Qt:Version} with MSYS64 Clang" --devicetype Desktop --Ctoolchain "ProjectExplorer.ToolChain.Clang:org.pllug.toolchain.clang.c" --Cxxtoolchain "ProjectExplorer.ToolChain.Clang:org.pllug.toolchain.clang.cpp" --qt "org.pllug.toolchain.qt" --mkspec win32-clang-g++
+cp /3rdparty/QtCreator.ini /home/User/QtProject
+find /mingw64/share/qtcreator/templates/wizards/projects -type f -print0 | xargs -0 sed -i 's/CONFIG += console c++11/CONFIG += console/g'
+find /mingw64/share/qtcreator/templates/wizards/projects -type f -print0 | xargs -0 sed -i 's/cout << "Hello World!" << endl;/std::cout << "Hello World!" << std::endl;/g'
+find /mingw64/share/qtcreator/templates/wizards/projects -type f -print0 | xargs -0 sed -i 's/using namespace std;//g'
+find /mingw64/share/qtcreator/templates/wizards/projects -type f -print0 | xargs -0 sed -i '/TEMPLATE = app/a \
+QMAKE_CXXFLAGS += -std=c++17'
+find /mingw64/share/qt5/mkspecs/common -type f -print0 | xargs -0 sed -i 's/load(windows_vulkan_sdk)/#load(windows_vulkan_sdk)/g'
+echo alias qtcreator='qtcreator -settingspath /home/User -installsettingspath /home/User' > ~/.zshrc
+
+
+

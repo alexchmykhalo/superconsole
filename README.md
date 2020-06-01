@@ -1,0 +1,2 @@
+# 🌟 SuperConsole 
+**SuperConsole** is a Windows console based on [ConEmu](https://github.com/Maximus5/ConEmu), [MSYS2](https://github.com/msys2), [Zsh](https://github.com/zsh-users/zsh), [Git for Windows](https://github.com/git-for-windows/git), [grml-zsh-config](https://grml.org/zsh/), [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) and [agkozak-zsh-theme](https://github.com/agkozak/agkozak-zsh-prompt) projects, customized and configured for everyday use.

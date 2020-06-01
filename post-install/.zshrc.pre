@@ -1,0 +1,26 @@
+# A non zero value activates a handler, which is called when a command can not be found.
+COMMAND_NOT_FOUND=1
+# If set to yes (the default), the setup will enable zsh's completion caching mechanism, with the caching data being placed into $GRML_COMP_CACHE_DIR.
+GRML_COMP_CACHING=yes
+# This variable contains the handler to be used by COMMAND_NOT_FOUND
+# GRML_ZSH_CNF_HANDLER=
+# A non-empty value inhibits the definition of apt-specific short aliases, such as ag, agi, ati etc.
+GRML_NO_APT_ALIASES=1
+# A non-empty value inhibits the definition of 2-letter aliases such as da. ls, ll, la and other common ls-related aliases are exempt from this, as are the aliases inhibited by GRML_NO_APT_ALIASES.
+GRML_NO_SMALL_ALIASES=1
+# Number of commands to be kept in the history.
+HISTSIZE=5000
+# Sets the frequency in seconds for zsh to check for new mail. Defaults to 30. A value of zero turns off checking.
+MAILCHECK=0
+# Non zero values deactivate automatic correction of commands.
+NOCOR=1
+# If set to zero (default), allows selection from a menu, if there are at least five possible options of completion
+#NOMENU=1
+# A non zero value disables precmd and preexec commands. These are functions that are run before every command (setting xterm/screen titles etc.).
+#NOPRECMD=1
+# Show time (user, system and cpu) used by external commands, if they run longer than the defined number of seconds (default: 5).
+REPORTTIME=1
+# Number of commands to be stored in ${HISTFILE}. Defaults to 1000 on a Grml-CD and to 10000 on an installation on hard disk.
+SAVEHIST=10000
+# Import "/etc/default/locale", if set to zero (default).
+ZSH_NO_DEFAULT_LOCALE1=0
