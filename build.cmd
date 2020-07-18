@@ -4,9 +4,9 @@ rem ***************************************************************************
 rem * SuperConsole Build Script                                               *
 rem * Copyright (C) 2020  Alex Chmykhalo <alex.chmykhalo@gmail.com>           *
 rem *                                                                         *
-rem * SuperConsole is a Windows console based on ConEmu, MSYS2, Zsh,          *
-rem * Git for Windows, grml-zsh-config and agkozak-zsh-theme projects,        *
-rem * customized and configured for everyday use.                             *
+rem * SuperConsole is a software collection based on ConEmu, MSYS2, Mintty    *
+rem * Zsh, Git for Windows, grml-zsh-config, antigen and agkozak-zsh-theme    *
+rem * projects customized and configured for everyday use.                    *
 rem *                                                                         *
 rem * Should work on Windows 10. Just run this script to get a fresh build.   *
 rem ***************************************************************************
@@ -28,8 +28,8 @@ set P7ZIP_PACKAGE_VERSION="18.1.0"
 set P7ZIP_PATH=%BUILD_DIR%\%P7ZIP_PACKAGE_NAME%.%P7ZIP_PACKAGE_VERSION%\tools\x64\7za.exe
 
 set CONEMU_MAJ_VER=20
-set CONEMU_MIN_VER=06
-set CONEMU_PATCH_VER=15
+set CONEMU_MIN_VER=07
+set CONEMU_PATCH_VER=13
 set CONEMU_DOWNLOAD_LINK="https://github.com/Maximus5/ConEmu/releases/download/v%CONEMU_MAJ_VER%.%CONEMU_MIN_VER%.%CONEMU_PATCH_VER%/ConEmuPack.%CONEMU_MAJ_VER%%CONEMU_MIN_VER%%CONEMU_PATCH_VER%.7z"
 set CONEMU_PACKAGE_NAME=%BUILD_DIR%\ConEmuPack.%CONEMU_MAJ_VER%%CONEMU_MIN_VER%%CONEMU_PATCH_VER%.7z
 set CONEMU_DIR=%BUILD_DIR%\ConEmu
@@ -47,11 +47,7 @@ set THIRDPARTY_DEST_PATH=%MSYS2_DIR%\msys64\3rdparty
 set POST_INSTALL_DEST_PATH=%THIRDPARTY_DEST_PATH%\post-install
 set POST_INSTALL_SCRIPT_DEST_PATH=/3rdparty/post-install/post-install.sh
 
-set ZSH_THEME_URL="https://github.com/borekb/agkozak-zsh-theme/archive/master.zip"
-set ZSH_THEME_PACKAGE_NAME=%BUILD_DIR%\agkozak-zsh-theme-master.zip
-
-set OH_MY_ZSH_URL="https://github.com/ohmyzsh/ohmyzsh/archive/master.zip"
-set OH_MY_ZSH_PACKAGE_NAME=%BUILD_DIR%\ohmyzsh-master.zip
+set ANTIGEN_URL="https://git.io/antigen"
 
 set SUPER_CONSOLE_PACKAGE_NAME=SuperConsole.7z
 
@@ -86,13 +82,8 @@ copy /Y %POST_INSTALL_DIR_PATH%\*.* %POST_INSTALL_DEST_PATH% > %temp%\nul
 copy /Y %POST_INSTALL_DIR_PATH%\nsswitch.conf %MSYS2_DIR%\msys64\etc > %temp%\nul
 copy /Y %POST_INSTALL_DIR_PATH%\ConEmu.xml %MSYS2_DIR% > %temp%\nul
 
-echo Download agkozak-zsh-theme...
-%CURL_PATH% -LJO %ZSH_THEME_URL% --output %ZSH_THEME_PACKAGE_NAME% > %temp%\nul
-%P7ZIP_PATH% x %ZSH_THEME_PACKAGE_NAME% -o%THIRDPARTY_DEST_PATH% -r -y > %temp%\nul
-
-echo Download oh-my-zsh...
-%CURL_PATH% -LJO %OH_MY_ZSH_URL% --output %OH_MY_ZSH_PACKAGE_NAME% > %temp%\nul
-%P7ZIP_PATH% x %OH_MY_ZSH_PACKAGE_NAME% -o%THIRDPARTY_DEST_PATH% -r -y > %temp%\nul
+echo Download antigen...
+%CURL_PATH% -L %ANTIGEN_URL% > %THIRDPARTY_DEST_PATH%\antigen.zsh
 
 echo Initialize MSYS2 with first shell run...
 %MSYS2_DIR%\msys64\usr\bin\bash.exe --login -c exit
@@ -104,6 +95,9 @@ echo Run post-install script...
 set MSYS2_PATH_TYPE=inherit
 set MSYSTEM=MINGW64
 %MSYS2_DIR%\msys64\usr\bin\bash.exe --login -c "%POST_INSTALL_SCRIPT_DEST_PATH% && exit"
+
+set "PATH=%MSYS2_DIR%\msys64\mingw64\bin;%MSYS2_DIR%\msys64\usr\bin;%MSYS2_DIR%\msys64\3rdparty;%PATH%"
+%MSYS2_DIR%\msys64\usr\bin\zsh.exe --login -i -c "antigen reset && exit"
 
 echo Prepare SuperConsole package...
 %P7ZIP_PATH% a -t7z -m0=lzma -mx=9 -mfb=64 -md=128m -ms=on %SUPER_CONSOLE_PACKAGE_NAME% %CONEMU_DIR%

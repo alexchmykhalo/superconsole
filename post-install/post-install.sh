@@ -22,7 +22,7 @@ curl -L https://raw.githubusercontent.com/git-for-windows/build-extra/master/git
 
 # Fetch all repos and install essentials utils, settings and git for windows
 pacman -Suy --noconfirm
-pacman -S --noconfirm colormake colordiff grml-zsh-config man-db nano nano-syntax-highlighting-git openssh patch procps-ng zip unzip vim winln winpty zsh mingw-w64-x86_64-adobe-source-code-pro-fonts mingw-w64-x86_64-git mingw-w64-x86_64-git-credential-manager mingw-w64-x86_64-git-doc-man mingw-w64-x86_64-git-lfs mingw-w64-x86_64-git-sizer mingw-w64-x86_64-wintoast git-extra
+pacman -S --noconfirm colormake colordiff grml-zsh-config man-db nano nano-syntax-highlighting-git openssh pkgfile patch procps-ng zip unzip vim winln winpty zsh mingw-w64-x86_64-adobe-source-code-pro-fonts mingw-w64-x86_64-git mingw-w64-x86_64-git-credential-manager mingw-w64-x86_64-git-doc-man mingw-w64-x86_64-git-lfs mingw-w64-x86_64-git-sizer mingw-w64-x86_64-wintoast git-extra
 
 # Fetch info to use with command-not-found handler
 pkgfile --update
