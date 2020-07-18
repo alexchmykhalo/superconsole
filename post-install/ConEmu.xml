@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2020-05-31 01:43:16" build="190108">
+		<key name=".Vanilla" modified="2020-07-17 23:54:39" build="200713">
 			<value name="StartType" type="hex" data="03"/>
 			<value name="CmdLine" type="string" data=""/>
 			<value name="StartTasksFile" type="string" data=""/>
@@ -241,12 +241,12 @@
 			<value name="AutoSaveSizePos" type="hex" data="01"/>
 			<value name="Cascaded" type="hex" data="01"/>
 			<value name="IntegralSize" type="hex" data="00"/>
-			<value name="WindowMode" type="dword" data="0000051f"/>
-			<value name="ConWnd X" type="long" data="859"/>
-			<value name="ConWnd Y" type="long" data="23"/>
+			<value name="WindowMode" type="dword" data="00000520"/>
+			<value name="ConWnd X" type="long" data="829"/>
+			<value name="ConWnd Y" type="long" data="136"/>
 			<value name="LastMonitor" type="string" data="0,0,1920,1040"/>
-			<value name="ConWnd Width" type="dword" data="0000007a"/>
-			<value name="ConWnd Height" type="dword" data="00000033"/>
+			<value name="ConWnd Width" type="dword" data="00000075"/>
+			<value name="ConWnd Height" type="dword" data="00000028"/>
 			<value name="16bit Height" type="ulong" data="0"/>
 			<key name="Colors" modified="2020-05-13 15:36:11" build="191012">
 				<value name="Count" type="long" data="2"/>
@@ -438,10 +438,6 @@
 			<value name="ComSpec.UncPaths" type="hex" data="00"/>
 			<value name="ComSpec.Path" type="string" data=""/>
 			<value name="EnvironmentSet" type="multi">
-				<line data="set PATH=%ConEmuBaseDir%\Scripts;%PATH%"/>
-				<line data="set LANG=en_US.utf8"/>
-				<line data="set PYTHONIOENCODING=UTF-8"/>
-				<line data=" "/>
 				<line data="# set ConEmuPromptNames=NO"/>
 				<line data="# set ConEmuPromptNL=NO"/>
 				<line data="# set ConEmuSudoSplit=NO"/>
@@ -587,7 +583,7 @@
 			<value name="TabFontCharSet" type="ulong" data="0"/>
 			<value name="SaveAllEditors" type="string" data=""/>
 			<value name="ToolbarAddSpace" type="long" data="0"/>
-			<value name="TabConsole" type="string" data="&lt;%c&gt; %f [%n]"/>
+			<value name="TabConsole" type="string" data="&lt;%c&gt; %f"/>
 			<value name="TabModifiedSuffix" type="string" data="[*]"/>
 			<value name="TabSkipWords" type="string" data="Administrator:|Администратор:"/>
 			<value name="TabPanels" type="string" data="&lt;%c&gt; %s"/>
@@ -662,36 +658,36 @@
 			<value name="Update.DownloadPath" type="string" data="%TEMP%\ConEmu"/>
 			<value name="Update.LeavePackages" type="hex" data="00"/>
 			<value name="Update.PostUpdateCmd" type="string" data="echo Last successful update&gt;ConEmuUpdate.info &amp;&amp; date /t&gt;&gt;ConEmuUpdate.info &amp;&amp; time /t&gt;&gt;ConEmuUpdate.info"/>
-			<key name="Tasks" modified="2020-05-30 02:27:04" build="191012">
+			<key name="Tasks" modified="2020-07-17 23:40:22" build="200713">
 				<value name="Count" type="long" data="7"/>
-				<key name="Task1" modified="2020-05-30 02:51:38" build="191012">
+				<key name="Task1" modified="2020-07-17 23:57:57" build="200713">
 					<value name="Name" type="string" data="{MSYS2-MINGW64}"/>
 					<value name="Flags" type="dword" data="00000005"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
-					<value name="Cmd1" type="string" data='set CHERE_INVOKING=1 &amp; set MSYSTEM=MINGW64 &amp; set "PATH=%ConEmuDir%\msys64\mingw64\bin;%ConEmuDir%\msys64\usr\bin;%ConEmuDir%\msys64\3rdparty;%PATH%" &amp; %ConEmuBaseDirShort%\conemu-msys2-64.exe -new_console:p "%ConEmuDir%\msys64\usr\bin\zsh.exe" --login -i -new_console:C:”%ConEmuDrive%\msys64\msys2.ico”'/>
+					<value name="Cmd1" type="string" data='set CHERE_INVOKING=1 &amp; set MSYSTEM=MINGW64 &amp; set "PATH=%ConEmuDir%\msys64\mingw64\bin;%ConEmuDir%\msys64\usr\bin;%ConEmuDir%\msys64\3rdparty;%PATH%" &amp; "%ConEmuDir%\msys64\usr\bin\mintty.exe" -e "%ConEmuDir%\msys64\usr\bin\zsh.exe" --login -i'/>
 				</key>
-				<key name="Task2" modified="2020-05-30 02:51:38" build="191012">
+				<key name="Task2" modified="2020-07-17 23:57:57" build="200713">
 					<value name="Name" type="string" data="{MSYS2-MINGW64 (inherit PATH)}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
-					<value name="Cmd1" type="string" data='set CHERE_INVOKING=1 &amp; set MSYSTEM=MINGW64 &amp; set MSYS2_PATH_TYPE=inherit &amp; set "PATH=%ConEmuDir%\msys64\mingw64\bin;%ConEmuDir%\msys64\usr\bin;%ConEmuDir%\msys64\3rdparty;%PATH%" &amp; %ConEmuBaseDirShort%\conemu-msys2-64.exe -new_console:p "%ConEmuDir%\msys64\usr\bin\zsh.exe" --login -i -new_console:C:”%ConEmuDrive%\msys64\msys2.ico”'/>
+					<value name="Cmd1" type="string" data='MSYS2_PATH_TYPE=inherit &amp; set CHERE_INVOKING=1 &amp; set MSYSTEM=MINGW64 &amp; set "PATH=%ConEmuDir%\msys64\mingw64\bin;%ConEmuDir%\msys64\usr\bin;%ConEmuDir%\msys64\3rdparty;%PATH%" &amp; "%ConEmuDir%\msys64\usr\bin\mintty.exe" -e "%ConEmuDir%\msys64\usr\bin\zsh.exe" --login -i'/>
 				</key>
-				<key name="Task3" modified="2020-05-30 02:51:38" build="191012">
+				<key name="Task3" modified="2020-07-17 23:42:04" build="200713">
 					<value name="Name" type="string" data="{Windows::cmd}"/>
-					<value name="Flags" type="dword" data="00000002"/>
+					<value name="Flags" type="dword" data="00000006"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd.exe /k "%ConEmuBaseDir%\CmdInit.cmd"'/>
 				</key>
-				<key name="Task4" modified="2020-05-30 02:51:38" build="191012">
+				<key name="Task4" modified="2020-07-17 23:40:22" build="200713">
 					<value name="Name" type="string" data="{Windows::cmd (Admin)}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -700,7 +696,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd.exe /k "%ConEmuBaseDir%\CmdInit.cmd" -new_console:a'/>
 				</key>
-				<key name="Task5" modified="2020-05-30 02:51:38" build="191012">
+				<key name="Task5" modified="2020-07-17 23:40:22" build="200713">
 					<value name="Name" type="string" data="{Windows::PowerShell}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -709,7 +705,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data="powershell.exe"/>
 				</key>
-				<key name="Task6" modified="2020-05-30 02:51:38" build="191012">
+				<key name="Task6" modified="2020-07-17 23:40:22" build="200713">
 					<value name="Name" type="string" data="{Windows::PowerShell (Admin)}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -718,7 +714,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data="powershell.exe -new_console:a"/>
 				</key>
-				<key name="Task7" modified="2020-05-30 02:27:04" build="191012">
+				<key name="Task7" modified="2020-07-17 23:40:22" build="200713">
 					<value name="Name" type="string" data="{Helper::Show ANSI colors}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -727,11 +723,18 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd.exe /k type "%ConEmuBaseDir%\Addons\AnsiColors16t.ans" -cur_console:n'/>
 				</key>
-				<key name="&lt;Startup&gt;" modified="2020-06-01 21:53:33" build="191012">
+				<!--				<key name="&lt;Startup&gt;" modified="2020-07-18 11:49:21" build="200713">
+					<value name="GuiArgs" type="string" data=""/>
+					<value name="Active" type="long" data="2"/>
+					<value name="Count" type="long" data="2"/>
+					<value name="Cmd1" type="string" data='-cur_console:d:D:\MyProjects\SuperConsole\superconsole set CHERE_INVOKING=1 &amp; set MSYSTEM=MINGW64 &amp; set "PATH=%ConEmuDir%\msys64\mingw64\bin;%ConEmuDir%\msys64\usr\bin;%ConEmuDir%\msys64\3rdparty;%PATH%" &amp; "%ConEmuDir%\msys64\usr\bin\mintty.exe" --dir "%CD%" -e "%ConEmuDir%\msys64\usr\bin\zsh.exe" --login -i'/>
+					<value name="Cmd2" type="string" data='&gt; -cur_console:d:D:\MyProjects\SuperConsole\superconsole\post-install set CHERE_INVOKING=1 &amp; set MSYSTEM=MINGW64 &amp; set "PATH=%ConEmuDir%\msys64\mingw64\bin;%ConEmuDir%\msys64\usr\bin;%ConEmuDir%\msys64\3rdparty;%PATH%" &amp; "%ConEmuDir%\msys64\usr\bin\mintty.exe" -e "%ConEmuDir%\msys64\usr\bin\zsh.exe" --login -i'/>
+				</key> -->
+				<key name="&lt;Startup&gt;" modified="2020-07-18 12:05:18" build="200713">
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Active" type="long" data="1"/>
 					<value name="Count" type="long" data="1"/>
-					<value name="Cmd1" type="string" data='&gt; -cur_console:p -cur_console:C:”%ConEmuDrive%\msys64\msys2.ico” set CHERE_INVOKING=1 &amp; set MSYSTEM=MINGW64 &amp; set "PATH=%ConEmuDir%\msys64\mingw64\bin;%ConEmuDir%\msys64\usr\bin;%ConEmuDir%\msys64\3rdparty;%PATH%" &amp; %ConEmuBaseDirShort%\conemu-msys2-64.exe "%ConEmuDir%\msys64\usr\bin\zsh.exe" --login -i'/>
+					<value name="Cmd1" type="string" data='&gt; -cur_console:f -cur_console:d:%ConEmuDir%\msys64\home\user set CHERE_INVOKING=1 &amp; set MSYSTEM=MINGW64 &amp; set "PATH=%ConEmuDir%\msys64\mingw64\bin;%ConEmuDir%\msys64\usr\bin;%ConEmuDir%\msys64\3rdparty;%PATH%" &amp; "%ConEmuDir%\msys64\usr\bin\mintty.exe" -e "%ConEmuDir%\msys64\usr\bin\zsh.exe" --login -i'/>
 				</key>
 			</key>
 			<key name="Apps" modified="2019-02-26 22:20:19" build="190225">
@@ -739,7 +742,6 @@
 			</key>
 			<value name="CmdLineHistory" type="multi">
 				<line data="{MSYS2-MINGW64}"/>
-				<line data="{Bash::Msys2-64}"/>
 			</value>
 			<value name="AnsiLogCodes" type="hex" data="00"/>
 			<value name="AutoReloadEnvironment" type="hex" data="01"/>

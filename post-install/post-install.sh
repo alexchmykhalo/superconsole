@@ -4,9 +4,9 @@
 # * SuperConsole Post-Install Configuration Script                          *
 # * Copyright (C) 2020  Alex Chmykhalo <alex.chmykhalo@gmail.com>           *
 # *                                                                         *
-# * SuperConsole is a Windows console based on ConEmu, MSYS2, Zsh,          *
-# * Git for Windows, grml-zsh-config and agkozak-zsh-theme projects,        *
-# * customized and configured for everyday use.                             *
+# * SuperConsole is a software collection based on ConEmu, MSYS2, mintty,   *
+# * Zsh, Git for Windows, grml-zsh-config, antigen and agkozak-zsh-theme    *
+# * projects customized and configured for everyday use.                    *
 # ***************************************************************************
 
 # Dir where script is located.
@@ -29,13 +29,16 @@ pkgfile --update
 
 # Enable nano colored syntax highligting and custom settings
 cp $SCRIPT_DIR/.nanorc $HOME
-B
+
 # ConEmu configured to search SourceCodePro-Regular font in root dir - we will use installed one with MSYS2
 winln /mingw64/share/fonts/adobe-source-code-pro/SourceCodePro-Regular.otf $MSYS2_DIR/SourceCodePro.otf
 
 # Set custom zsh configuration
 cp $SCRIPT_DIR/.zshrc $HOME
 cp $SCRIPT_DIR/.zshrc.pre $HOME
+
+# Copy configuration for Mintty
+cp $SCRIPT_DIR/.minttyrc $HOME
 
 # .ssh folder isnecessary to avoid ssh-agent plugin warnings
 mkdir /home/user/.ssh
