@@ -11,7 +11,7 @@ find /mingw64/share/qtcreator/templates/wizards/projects -type f -print0 | xargs
 find /mingw64/share/qtcreator/templates/wizards/projects -type f -print0 | xargs -0 sed -i '/TEMPLATE = app/a \
 QMAKE_CXXFLAGS += -std=c++17'
 find /mingw64/share/qt5/mkspecs/common -type f -print0 | xargs -0 sed -i 's/load(windows_vulkan_sdk)/#load(windows_vulkan_sdk)/g'
-echo alias qtcreator='qtcreator -settingspath /home/User -installsettingspath /home/User' > ~/.zshrc
+echo alias qtcreator='qtcreator -settingspath /home/user -installsettingspath /home/user' >> ~/.zshrc
 
 
 
