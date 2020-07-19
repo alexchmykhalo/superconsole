@@ -1,5 +1,5 @@
 # 🌟 SuperConsole 
-**SuperConsole** is a software collectione based on [ConEmu](https://github.com/Maximus5/ConEmu), [MSYS2](https://github.com/msys2), [Mintty](https://mintty.github.io/), [Zsh](https://github.com/zsh-users/zsh), [Git for Windows](https://github.com/git-for-windows/git), [grml-zsh-config](https://grml.org/zsh/), [Antigen](https://github.com/zsh-users/antigen) and [agkozak-zsh-theme](https://github.com/agkozak/agkozak-zsh-prompt) projects, customized and configured for everyday use.
+**SuperConsole** is a software collection based on [ConEmu](https://github.com/Maximus5/ConEmu), [MSYS2](https://github.com/msys2), [Mintty](https://mintty.github.io/), [Zsh](https://github.com/zsh-users/zsh), [Git for Windows](https://github.com/git-for-windows/git), [grml-zsh-config](https://grml.org/zsh/), [Antigen](https://github.com/zsh-users/antigen) and [agkozak-zsh-theme](https://github.com/agkozak/agkozak-zsh-prompt) projects, customized and configured for everyday use.
 
 ## List of customizations (so far):
   * Pre-configured ConEmu with my favourite settings (see post-install/ConEmu.xml)
