@@ -96,8 +96,9 @@ set MSYS2_PATH_TYPE=inherit
 set MSYSTEM=MINGW64
 %MSYS2_DIR%\msys64\usr\bin\bash.exe --login -c "%POST_INSTALL_SCRIPT_DEST_PATH% && exit"
 
+echo Preparing zsh plugins...
 set "PATH=%MSYS2_DIR%\msys64\mingw64\bin;%MSYS2_DIR%\msys64\usr\bin;%MSYS2_DIR%\msys64\3rdparty;%PATH%"
-%MSYS2_DIR%\msys64\usr\bin\zsh.exe --login -i -c "antigen reset && exit"
+%MSYS2_DIR%\msys64\usr\bin\zsh.exe --login -i -c "sleep 10 && antigen reset && sleep 10 && exit"
 
 echo Prepare SuperConsole package...
 %P7ZIP_PATH% a -t7z -m0=lzma -mx=9 -mfb=64 -md=128m -ms=on %SUPER_CONSOLE_PACKAGE_NAME% %CONEMU_DIR%

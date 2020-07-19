@@ -48,6 +48,3 @@ cp $SCRIPT_DIR/.gitconfig $HOME
 
 # Remove cached pacman packages
 pacman -Scc --noconfirm
-
-# Prepare shell for first-run initialization
-touch ~/.first-run
