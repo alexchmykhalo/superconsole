@@ -11,7 +11,7 @@
   * Used Antigen for zsh theme and config management
   * Enabled number of zsh plugins to activate completion, highlighting and history for most comfortable use.
   * Git-for-Windows repo with proper git and git lfs support for MSYS2 environment is configured, git client already installed.
-  * ssh-agent for git works out-of-box, add your keys to ConEmu/msys64/ConEmu/msys64/home/user/.ssh dir
+  * ssh-agent for git works out-of-box, add your keys to ConEmu/msys64/home/user/.ssh dir
   * Non-blocking zsh prompt status updates thanks to agkozak-zsh-prompt
   * Customized for MSYS2 command-not-found handler suggests what package to install
   * Set up nano as main editor, enabled nano syntax highlighting
