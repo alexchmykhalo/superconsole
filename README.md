@@ -1,5 +1,5 @@
 # 🌟 SuperConsole 
-**SuperConsole** is a software collectione based on [ConEmu](https://github.com/Maximus5/ConEmu), [MSYS2](https://github.com/msys2), [Mintty](https://mintty.github.io/), [Zsh](https://github.com/zsh-users/zsh), [Git for Windows](https://github.com/git-for-windows/git), [grml-zsh-config](https://grml.org/zsh/), [Antigen](https://github.com/zsh-users/antigen) and [agkozak-zsh-theme](https://github.com/agkozak/agkozak-zsh-prompt) projects, customized and configured for everyday use.
+**SuperConsole** is a software collection based on [ConEmu](https://github.com/Maximus5/ConEmu), [MSYS2](https://github.com/msys2), [Mintty](https://mintty.github.io/), [Zsh](https://github.com/zsh-users/zsh), [Git for Windows](https://github.com/git-for-windows/git), [grml-zsh-config](https://grml.org/zsh/), [Antigen](https://github.com/zsh-users/antigen) and [agkozak-zsh-theme](https://github.com/agkozak/agkozak-zsh-prompt) projects, customized and configured for everyday use.
 
 ## List of customizations (so far):
   * Pre-configured ConEmu with my favourite settings (see post-install/ConEmu.xml)
@@ -11,7 +11,7 @@
   * Used Antigen for zsh theme and config management
   * Enabled number of zsh plugins to activate completion, highlighting and history for most comfortable use.
   * Git-for-Windows repo with proper git and git lfs support for MSYS2 environment is configured, git client already installed.
-  * ssh-agent for git works out-of-box, add your keys to ConEmu/msys64/ConEmu/msys64/home/user/.ssh dir
+  * ssh-agent for git works out-of-box, add your keys to ConEmu/msys64/home/user/.ssh dir
   * Non-blocking zsh prompt status updates thanks to agkozak-zsh-prompt
   * Customized for MSYS2 command-not-found handler suggests what package to install
   * Set up nano as main editor, enabled nano syntax highlighting
