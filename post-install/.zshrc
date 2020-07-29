@@ -10,13 +10,15 @@ antigen bundle ssh-agent
 #antigen bundle urltools
 
 #antigen-bundle Tarrasch/zsh-autoenv
+#ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd)
+#ZSH_AUTOSUGGEST_USE_ASYNC=1
 antigen bundle zsh-users/zsh-autosuggestions
 #antigen bundle MichaelAquilina/zsh-autoswitch-virtualenv
 #antigen bundle unixorn/bitbucket-git-helpers.plugin.zsh
 #antigen bundle 0b10/cheatsheet
 #antigen bundle psprint/zsh-navigation-tools
 #antigen bundle psprint/zsh-cmd-architect
-antigen bundle zsh-users/zsh-history-substring-search 
+antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zdharma/fast-syntax-highlighting
 #antigen bundle chipsenkbeil/zsh-notes
 antigen bundle sinetoami/web-search
@@ -35,8 +37,11 @@ antigen bundle agkozak/agkozak-zsh-prompt
 
 antigen apply
 
+# Git is very on Windows, so we disable highlighting
+FAST_HIGHLIGHT[chroma-git]=
+
 # Make /c/... autocompletion work, see Alexpux/MSYS2-packages#38
-zstyle ':completion:*' fake-files /: '/:c' '/:d' 
+zstyle ':completion:*' fake-files /: '/:c' '/:d'
 
 export EDITOR='nano'
 export COLORTERM=yes
