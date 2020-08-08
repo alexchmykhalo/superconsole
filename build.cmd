@@ -35,8 +35,8 @@ set CONEMU_PACKAGE_NAME=%BUILD_DIR%\ConEmuPack.%CONEMU_MAJ_VER%%CONEMU_MIN_VER%%
 set CONEMU_DIR=%BUILD_DIR%\ConEmu
 
 set MSYS2_RELEASE_YEAR=2020
-set MSYS2_RELEASE_MOUNTH=06
-set MSYS2_RELEASE_DAY=29
+set MSYS2_RELEASE_MOUNTH=07
+set MSYS2_RELEASE_DAY=20
 set MSYS2_DOWNLOAD_LINK="https://github.com/msys2/msys2-installer/releases/download/%MSYS2_RELEASE_YEAR%-%MSYS2_RELEASE_MOUNTH%-%MSYS2_RELEASE_DAY%/msys2-base-x86_64-%MSYS2_RELEASE_YEAR%%MSYS2_RELEASE_MOUNTH%%MSYS2_RELEASE_DAY%.tar.xz"
 set MSYS2_PACKAGE_NAME=%BUILD_DIR%\msys2-base-x86_64-%MSYS2_RELEASE_YEAR%%MSYS2_RELEASE_MOUNTH%%MSYS2_RELEASE_DAY%.tar.xz
 set MSYS2_DIR=%BUILD_DIR%\ConEmu
@@ -78,6 +78,9 @@ echo Unpack MSYS2...
 echo Copy post-install and helper scripts and necessary config files...
 if not exist "%POST_INSTALL_DEST_PATH%" mkdir %POST_INSTALL_DEST_PATH% > %temp%\nul
 copy /Y %THIRDPARTY_DIR_PATH%\*.* %THIRDPARTY_DEST_PATH% > %temp%\nul
+mkdir %THIRDPARTY_DEST_PATH%\install-scripts\
+copy /Y %THIRDPARTY_DIR_PATH%\install-scripts\* %THIRDPARTY_DEST_PATH%\install-scripts > %temp%\nul
+copy /Y %THIRDPARTY_DIR_PATH%\install-scripts\* %THIRDPARTY_DEST_PATH%\install-scripts\
 copy /Y %POST_INSTALL_DIR_PATH%\*.* %POST_INSTALL_DEST_PATH% > %temp%\nul
 copy /Y %POST_INSTALL_DIR_PATH%\nsswitch.conf %MSYS2_DIR%\msys64\etc > %temp%\nul
 copy /Y %POST_INSTALL_DIR_PATH%\ConEmu.xml %MSYS2_DIR% > %temp%\nul
@@ -89,7 +92,7 @@ echo Initialize MSYS2 with first shell run...
 %MSYS2_DIR%\msys64\usr\bin\bash.exe --login -c exit
 
 echo Try to update base packages...
-%MSYS2_DIR%\msys64\usr\bin\bash.exe --login -c "pacman -Suy --noconfirm && exit"
+%MSYS2_DIR%\msys64\usr\bin\bash.exe --login -c "pacman --noprogress -Suy --noconfirm && exit"
 
 echo Run post-install script...
 set MSYS2_PATH_TYPE=inherit
@@ -101,7 +104,7 @@ set "PATH=%MSYS2_DIR%\msys64\mingw64\bin;%MSYS2_DIR%\msys64\usr\bin;%MSYS2_DIR%\
 %MSYS2_DIR%\msys64\usr\bin\zsh.exe --login -i -c "sleep 10 && antigen reset && sleep 10 && exit"
 
 echo Prepare SuperConsole package...
-%P7ZIP_PATH% a -t7z -m0=lzma -mx=9 -mfb=64 -md=128m -ms=on %SUPER_CONSOLE_PACKAGE_NAME% %CONEMU_DIR%
+%P7ZIP_PATH% a -t7z -m0=lzma2 -mmt=8 -mx=9 -mfb=64 -md=128m -ms=on %SUPER_CONSOLE_PACKAGE_NAME% %CONEMU_DIR%
 
 cd ..
 
