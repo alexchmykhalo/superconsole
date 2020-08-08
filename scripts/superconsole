@@ -1,0 +1,29 @@
+#!/usr/bin/zsh
+
+TMP_FILE=$(tempfile 2>/dev/null) || TMP_FILE=/tmp/superconsole-tmp
+
+dialog --clear --no-tags --checklist "Choose Actions:" 20 100 1 \
+	'update' 'Update installed software' off \
+        'gcc' 'Install GCC C++ Compiler' off \
+        'clang' 'Install Clang C++ Compiler' off \
+        'make' 'Install make' off \
+        'cmake' 'Install CMake' off \
+        'python2' 'Install Python 2' off \
+        'qt5' 'Install Qt5' off \
+        'qt5-debug' 'Install Qt5 (Debug)' off \
+        'qtcreator' 'Install QtCreator' off \
+        'qtcreator-doc' 'Install additional QtCreator Help for C++ and CMake' off \
+        'qtcreator-customize' 'Customize QtCreator for more convenient use.' off \
+        'doxygen' 'Install Doxygen' off \
+        'clean-cache' 'Clean installed package cache to save storage space' off \
+        2>$TMP_FILE
+
+clear
+
+for value in `cat $TMP_FILE`
+do
+    source "/3rdparty/install-scripts/$value"
+done
+
+rm $TMP_FILE
+unset TMP_FILE
