@@ -51,3 +51,5 @@ source /3rdparty/command-not-found-msys2
 
 set_conemu_cwd() { $(cygpath -u  $ConEmuBaseDir/ConEmuC.exe) -StoreCWD }
 precmd_functions+=set_conemu_cwd
+
+alias "superconsole=source /3rdparty/superconsole"
