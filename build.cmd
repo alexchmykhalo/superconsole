@@ -80,7 +80,8 @@ if not exist "%POST_INSTALL_DEST_PATH%" mkdir %POST_INSTALL_DEST_PATH% > %temp%\
 copy /Y %THIRDPARTY_DIR_PATH%\*.* %THIRDPARTY_DEST_PATH% > %temp%\nul
 mkdir %THIRDPARTY_DEST_PATH%\install-scripts\
 copy /Y %THIRDPARTY_DIR_PATH%\install-scripts\* %THIRDPARTY_DEST_PATH%\install-scripts > %temp%\nul
-copy /Y %THIRDPARTY_DIR_PATH%\install-scripts\* %THIRDPARTY_DEST_PATH%\install-scripts\
+mkdir %THIRDPARTY_DEST_PATH%\configure-scripts\
+copy /Y %THIRDPARTY_DIR_PATH%\configure-scripts\* %THIRDPARTY_DEST_PATH%\configure-scripts > %temp%\nul
 copy /Y %POST_INSTALL_DIR_PATH%\*.* %POST_INSTALL_DEST_PATH% > %temp%\nul
 copy /Y %POST_INSTALL_DIR_PATH%\nsswitch.conf %MSYS2_DIR%\msys64\etc > %temp%\nul
 copy /Y %POST_INSTALL_DIR_PATH%\ConEmu.xml %MSYS2_DIR% > %temp%\nul

@@ -1,2 +1,1 @@
-#/usr/bin/zsh
-pacman --needed --noconfirm -S mingw-w64-x86_64-clang mingw-w64-x86_64-clang-tools-extra mingw-w64-x86_64-clang-analyzer mingw-w64-x86_64-compiler-rt mingw-w64-x86_64-lldb mingw-w64-x86_64-lld
+echo mingw-w64-x86_64-clang mingw-w64-x86_64-clang-tools-extra mingw-w64-x86_64-clang-analyzer mingw-w64-x86_64-compiler-rt mingw-w64-x86_64-lldb mingw-w64-x86_64-lld >> $1

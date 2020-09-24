@@ -1,1 +1,1 @@
-pacman --needed --noconfirm -S make
+echo make >> $1

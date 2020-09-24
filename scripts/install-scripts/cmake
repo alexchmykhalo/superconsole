@@ -1,1 +1,1 @@
-pacman --needed --noconfirm -S mingw-w64-x86_64-cmake mingw-w64-x86_64-extra-cmake-modules
+echo mingw-w64-x86_64-cmake mingw-w64-x86_64-extra-cmake-modules >> $1

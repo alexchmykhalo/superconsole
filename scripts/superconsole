@@ -1,9 +1,10 @@
 #!/usr/bin/zsh
 
-TMP_FILE=$(tempfile 2>/dev/null) || TMP_FILE=/tmp/superconsole-tmp
+MENU_INSTALL_SELECTION_TEMP_FILE=$(tempfile 2>/dev/null) || MENU_INSTALL_SELECTION_TEMP_FILE=/tmp/install-tmp
+MENU_ACTION_SELECTION_TEMP_FILE=$(tempfile 2>/dev/null) || MENU_ACTION_SELECTION_TEMP_FILE=/tmp/action-tmp
+INSTALL_TEMP_FILE=$(tempfile 2>/dev/null) || INSTALL_TEMP_FILE=/tmp/superconsole-setup-tmp
 
-dialog --clear --no-tags --checklist "Choose Actions:" 20 100 1 \
-	'update' 'Update installed software' off \
+dialog --clear --no-tags --checklist "Install Software Packages:" 20 100 1 \
         'gcc' 'Install GCC C++ Compiler' off \
         'clang' 'Install Clang C++ Compiler' off \
         'make' 'Install make' off \
@@ -13,17 +14,34 @@ dialog --clear --no-tags --checklist "Choose Actions:" 20 100 1 \
         'qt5-debug' 'Install Qt5 (Debug)' off \
         'qtcreator' 'Install QtCreator' off \
         'qtcreator-doc' 'Install additional QtCreator Help for C++ and CMake' off \
-        'qtcreator-customize' 'Customize QtCreator for more convenient use.' off \
         'doxygen' 'Install Doxygen' off \
-        'clean-cache' 'Clean installed package cache to save storage space' off \
-        2>$TMP_FILE
-
+        2>$MENU_INSTALL_SELECTION_TEMP_FILE
 clear
 
-for value in `cat $TMP_FILE`
+dialog --clear --no-tags --checklist "Choose Actions:" 20 100 1 \
+	    'update' 'Update installed software' off \
+        'qtcreator-customize' 'Customize QtCreator for more convenient use.' off \
+        'clean-cache' 'Clean installed package cache to save storage space' off \
+        2>$MENU_ACTION_SELECTION_TEMP_FILE
+clear
+
+for value in `cat $MENU_INSTALL_SELECTION_TEMP_FILE`
 do
-    source "/3rdparty/install-scripts/$value"
+    source "/3rdparty/install-scripts/$value" $INSTALL_TEMP_FILE
 done
 
-rm $TMP_FILE
-unset TMP_FILE
+pacman --noconfirm --needed -S `cat $INSTALL_TEMP_FILE`
+
+for value in `cat $MENU_ACTION_SELECTION_TEMP_FILE`
+do
+    source "/3rdparty/configure-scripts/$value"
+done
+
+rm $INSTALL_TEMP_FILE 2>/dev/null
+unset INSTALL_TEMP_FILE 2>/dev/null
+
+rm $MENU_ACTION_SELECTION_TEMP_FILE 2>/dev/null
+unset MENU_ACTION_SELECTION_TEMP_FILE 2>/dev/null
+
+rm $MENU_ACTION_SELECTION_TEMP_FILE 2>/dev/null
+unset MENU_ACTION_SELECTION_TEMP_FILE 2>/dev/null

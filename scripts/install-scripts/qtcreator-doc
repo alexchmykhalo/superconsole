@@ -1,1 +1,1 @@
-pacman --needed --noconfirm -S mingw-w64-x86_64-cmake-doc-qt mingw-w64-x86_64-cppreference-qt
+echo mingw-w64-x86_64-cmake-doc-qt mingw-w64-x86_64-cppreference-qt >> $1

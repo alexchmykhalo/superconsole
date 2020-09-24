@@ -1,2 +1,1 @@
-#/usr/bin/zsh
-pacman --needed --noconfirm -S mingw-w64-x86_64-gcc mingw-w64-x86_64-gdb
+echo mingw-w64-x86_64-gcc mingw-w64-x86_64-gdb >> $1
