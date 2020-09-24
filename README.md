@@ -3,7 +3,7 @@
 
 **SuperConsole** is a software collection based on [ConEmu](https://github.com/Maximus5/ConEmu), [MSYS2](https://github.com/msys2), [Mintty](https://mintty.github.io/), [Zsh](https://github.com/zsh-users/zsh), [Git for Windows](https://github.com/git-for-windows/git), [grml-zsh-config](https://grml.org/zsh/), [Antigen](https://github.com/zsh-users/antigen) and [agkozak-zsh-theme](https://github.com/agkozak/agkozak-zsh-prompt) projects, customized and configured for everyday use.
 
-<img src="https://raw.githubusercontent.com/alexchmykhalo/superconsole/master/screenshots/appearance.png" width="305" height="189" /><img src="https://raw.githubusercontent.com/alexchmykhalo/superconsole/master/screenshots/superconsole-helper.png" width="297" height="195" />
+<img src="https://raw.githubusercontent.com/alexchmykhalo/superconsole/master/screenshots/appearance.png" width="228" height="141" /><img src="https://raw.githubusercontent.com/alexchmykhalo/superconsole/master/screenshots/superconsole-helper-install.png" width="222" height="141" /><img src="https://raw.githubusercontent.com/alexchmykhalo/superconsole/master/screenshots/superconsole-helper-actions.png" width="222" height="146" />
 
 ## List of customizations (so far):
   * Pre-configured ConEmu with my favourite settings (see post-install/ConEmu.xml)
@@ -20,11 +20,11 @@
   * Customized for MSYS2 command-not-found handler suggests what package to install
   * Set up nano as main editor, enabled nano syntax highlighting
   * Custom helper scripts added to ConEmu/msys64/3rdparty
-  
+
   ## How to use
   1. Download and unpack SuperConsole.7z (see [Releases](https://github.com/alexchmykhalo/superconsole/releases))
   2. Run ConEmu\ConEmu64.exe
-  
+
   ## Build
   1. Download sources.
   2. (Optional) Customize everything you need. Most settings recides in `post-install` dir. 
