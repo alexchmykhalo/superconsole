@@ -667,7 +667,7 @@
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
-					<value name="Cmd1" type="string" data='set CHERE_INVOKING=1 &amp; set MSYSTEM=MINGW64 &amp; set "PATH=%ConEmuDir%\msys64\mingw64\bin;%ConEmuDir%\msys64\usr\bin;%ConEmuDir%\msys64\3rdparty;%PATH%" &amp; "%ConEmuDir%\msys64\usr\bin\mintty.exe" -e "%ConEmuDir%\msys64\usr\bin\zsh.exe" --login -i'/>
+					<value name="Cmd1" type="string" data='set CHERE_INVOKING=1 &amp; set MSYSTEM=MINGW64 &amp; "%ConEmuDir%\msys64\usr\bin\mintty.exe" -e "%ConEmuDir%\msys64\usr\bin\zsh.exe" --login -i'/>
 				</key>
 				<key name="Task2" modified="2020-07-17 23:57:57" build="200713">
 					<value name="Name" type="string" data="{MSYS2-MINGW64 (inherit PATH)}"/>
@@ -676,7 +676,7 @@
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
-					<value name="Cmd1" type="string" data='MSYS2_PATH_TYPE=inherit &amp; set CHERE_INVOKING=1 &amp; set MSYSTEM=MINGW64 &amp; set "PATH=%ConEmuDir%\msys64\mingw64\bin;%ConEmuDir%\msys64\usr\bin;%ConEmuDir%\msys64\3rdparty;%PATH%" &amp; "%ConEmuDir%\msys64\usr\bin\mintty.exe" -e "%ConEmuDir%\msys64\usr\bin\zsh.exe" --login -i'/>
+					<value name="Cmd1" type="string" data='set MSYS2_PATH_TYPE=inherit &amp; set CHERE_INVOKING=1 &amp; set MSYSTEM=MINGW64 &amp; "%ConEmuDir%\msys64\usr\bin\mintty.exe" -e "%ConEmuDir%\msys64\usr\bin\zsh.exe" --login -i'/>
 				</key>
 				<key name="Task3" modified="2020-07-17 23:42:04" build="200713">
 					<value name="Name" type="string" data="{Windows::cmd}"/>
