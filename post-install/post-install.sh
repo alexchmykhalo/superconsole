@@ -13,38 +13,49 @@
 # Script should be placed inside of
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-# Settings for pacman: git-for-windows repo, display options, disable 32-bit mingw repo
+echo Update all...
+pacman --noprogress -Suy --noconfir
+
+echo Settings for pacman: git-for-windows repo, display options, disable 32-bit mingw repo ...
 cp /etc/pacman.conf /etc/pacman.conf.old
 cp $SCRIPT_DIR/pacman.conf /etc
 
-# Add key for git-for-windows
-curl -L https://raw.githubusercontent.com/git-for-windows/build-extra/master/git-for-windows-keyring/git-for-windows.gpg | pacman-key --add - && pacman-key --lsign-key 1A9F3986
+echo Rank mirrors by speed...
+cp /etc/pacman.d/mirrorlist.mingw64 /etc/pacman.d/mirrorlist.mingw64.backup
+rankmirrors -n 20 /etc/pacman.d/mirrorlist.mingw64.backup > /etc/pacman.d/mirrorlist.mingw64
+cp /etc/pacman.d/mirrorlist.msys /etc/pacman.d/mirrorlist.msys.backup
+rankmirrors -n 20 /etc/pacman.d/mirrorlist.msys.backup > /etc/pacman.d/mirrorlist.msys
 
-# Fetch all repos and install essentials utils, settings and git for windows
+echo Add key for git-for-windows - https://github.com/git-for-windows/git/wiki/Install-inside-MSYS2-proper ...
+#curl -L https://raw.githubusercontent.com/git-for-windows/build-extra/master/git-for-windows-keyring/git-for-windows.gpg | pacman-key --add - && pacman-key --lsign-key 1A9F3986
+curl -L https://raw.githubusercontent.com/git-for-windows/build-extra/HEAD/git-for-windows-keyring/git-for-windows.gpg | pacman-key --add - && pacman-key --lsign-key 3B6D86A1BA7701CD0F23AED888138B9E1A9F3986
+
+echo Update all...
 pacman --noprogress -Suy --noconfirm
-pacman --needed --noprogress -S --noconfirm colormake colordiff dialog grml-zsh-config man-db nano nano-syntax-highlighting-git openssh pkgfile patch procps-ng zip unzip vim winln winpty zsh mingw-w64-x86_64-adobe-source-code-pro-fonts mingw-w64-x86_64-git mingw-w64-x86_64-git-credential-manager mingw-w64-x86_64-git-doc-man mingw-w64-x86_64-git-lfs mingw-w64-x86_64-git-sizer mingw-w64-x86_64-wintoast git-extra mingw-w64-x86_64-zstd
+echo Fetch all repos and install essentials utils, settings and git for windows...
+pacman --needed --noprogress -S --noconfirm colormake colordiff dialog grml-zsh-config man-db nano nano-syntax-highlighting openssh pkgfile patch procps-ng zip unzip vim winln winpty zsh mingw-w64-x86_64-adobe-source-code-pro-fonts mingw-w64-x86_64-git mingw-w64-x86_64-git-credential-manager mingw-w64-x86_64-git-doc-man mingw-w64-x86_64-git-lfs mingw-w64-x86_64-git-sizer mingw-w64-x86_64-wintoast mingw-w64-x86_64-zstd
 
-# Fetch info to use with command-not-found handler
+echo Fetch info to use with command-not-found handler ...
 pkgfile --update
 
-# Enable nano colored syntax highligting and custom settings
+echo Enable nano colored syntax highligting and custom settings ...
 cp $SCRIPT_DIR/.nanorc $HOME
 
-# ConEmu configured to search SourceCodePro-Regular font in root dir - we will use installed one with MSYS2
+echo ConEmu configured to search SourceCodePro-Regular font in root dir - we will use installed one with MSYS2....
 winln /mingw64/share/fonts/adobe-source-code-pro/SourceCodePro-Regular.otf $MSYS2_DIR/SourceCodePro.otf
 
-# Set custom zsh configuration
+echo Set custom zsh configuration...
 cp $SCRIPT_DIR/.zshrc $HOME
 cp $SCRIPT_DIR/.zshrc.pre $HOME
 
-# Copy configuration for Mintty
+echo Copy configuration for Mintty...
 cp $SCRIPT_DIR/.minttyrc $HOME
 
-# .ssh folder isnecessary to avoid ssh-agent plugin warnings
+echo .ssh folder is necessary to avoid ssh-agent plugin warnings...
 mkdir /home/user/.ssh
 
-# Enable credentials manager for git
+echo Enable credentials manager for git...
 cp $SCRIPT_DIR/.gitconfig $HOME
 
-# Remove cached pacman packages
+echo Remove cached pacman packages...
 pacman -Scc --noconfirm
