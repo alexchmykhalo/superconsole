@@ -20,12 +20,6 @@ echo Settings for pacman: git-for-windows repo, display options, disable 32-bit 
 cp /etc/pacman.conf /etc/pacman.conf.old
 cp $SCRIPT_DIR/pacman.conf /etc
 
-echo Rank mirrors by speed...
-cp /etc/pacman.d/mirrorlist.mingw64 /etc/pacman.d/mirrorlist.mingw64.backup
-rankmirrors -n 20 /etc/pacman.d/mirrorlist.mingw64.backup > /etc/pacman.d/mirrorlist.mingw64
-cp /etc/pacman.d/mirrorlist.msys /etc/pacman.d/mirrorlist.msys.backup
-rankmirrors -n 20 /etc/pacman.d/mirrorlist.msys.backup > /etc/pacman.d/mirrorlist.msys
-
 echo Add key for git-for-windows - https://github.com/git-for-windows/git/wiki/Install-inside-MSYS2-proper ...
 #curl -L https://raw.githubusercontent.com/git-for-windows/build-extra/master/git-for-windows-keyring/git-for-windows.gpg | pacman-key --add - && pacman-key --lsign-key 1A9F3986
 curl -L https://raw.githubusercontent.com/git-for-windows/build-extra/HEAD/git-for-windows-keyring/git-for-windows.gpg | pacman-key --add - && pacman-key --lsign-key 3B6D86A1BA7701CD0F23AED888138B9E1A9F3986

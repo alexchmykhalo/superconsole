@@ -1,0 +1,12 @@
+rank_mirrors() {
+	MIRRORLIST=$1
+	MIRRORLIST_BACKUP=$MINGW_MIRRORLIST.backup
+	if [ -f "$MIRRORLIST_BACKUP" ]; then
+		cp $MIRRORLIST $MIRRORLIST_BACKUP
+	fi
+	rankmirrors -n 20 $MIRRORLIST_BACKUP > $MIRRORLIST
+}
+
+echo Ranking mirrors by speed...
+rank_mirrors("/etc/pacman.d/mirrorlist.mingw64")
+rank_mirrors("/etc/pacman.d/mirrorlist.msys")
