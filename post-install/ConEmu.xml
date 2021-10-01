@@ -387,7 +387,7 @@
 			<value name="Multi.Iterate" type="hex" data="01"/>
 			<value name="Multi.SplitWidth" type="hex" data="04"/>
 			<value name="Multi.SplitHeight" type="hex" data="04"/>
-			<value name="FontName" type="string" data="Source Code Pro"/>
+			<value name="FontName" type="string" data="Consolas"/>
 			<value name="FontName2" type="string" data="Segoe UI"/>
 			<value name="FontAutoSize" type="hex" data="00"/>
 			<value name="FontSizeX" type="ulong" data="0"/>
