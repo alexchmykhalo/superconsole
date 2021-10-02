@@ -46,6 +46,7 @@ zstyle ':completion:*' fake-files /: '/:c' '/:d'
 export EDITOR='nano'
 export COLORTERM=yes
 export TERMINFO=/usr/lib/terminfo
+export PYTHONIOENCODING=UTF-8
 
 source /3rdparty/command-not-found-msys2
 
