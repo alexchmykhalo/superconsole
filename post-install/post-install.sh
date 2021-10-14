@@ -21,7 +21,7 @@ cp /etc/pacman.conf /etc/pacman.conf.old
 cp $SCRIPT_DIR/pacman.conf /etc
 
 echo Add key for git-for-windows - https://github.com/git-for-windows/git/wiki/Install-inside-MSYS2-proper ...
-curl -L https://raw.githubusercontent.com/git-for-windows/build-extra/HEAD/git-for-windows-keyring/git-for-windows.gpg | pacman-key --add - && pacman-key --lsign-key 3B6D86A1BA7701CD0F23AED888138B9E1A9F3986
+curl -L https://raw.githubusercontent.com/git-for-windows/build-extra/HEAD/git-for-windows-keyring/git-for-windows.gpg | pacman-key --add - && pacman-key --lsign-key 3B6D86A1BA7701CD0F23AED888138B9E1A9F3986 && pacman-key --lsign-key E8325679DFFF09668AD8D7B67115A57376871B1C
 
 echo Update all...
 pacman --noprogress -Suy --noconfirm
